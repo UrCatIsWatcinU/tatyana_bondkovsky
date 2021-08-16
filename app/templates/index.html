@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <meta name="robots" content="noindex,nofollow"/>
+    <meta name="description" content="Хотите подтянуть русский язык и сдать экзамен на пять? Я помогу вам."/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='icons/favicon.ico') }}" type="image/x-icon"/>
+    <title>Преподаватель русского языка Татьяна Бондковская </title>
+  </head>
+  <body class="main-cont">
+    <header class="header-cont main-cont_pad-aside">
+      <div class="slogan-logo"><span class="slogan-logo__name">Татьяна Бондковская </span>
+        <div class="slogan-logo__activ-cont"><span class="slogan-logo__activity">Преподаватель по русскому онлайн </span></div>
+      </div>
+      <div class="contacts-cont"><span class="contacts-cont__txt">+7 (917) 545-85-44</span>
+        <div class="contacts-cont__social"> <a class="contacts-cont__vk" href="https://vk.com/id39592509"> </a><a class="contacts-cont__inst" href="https://www.instagram.com/tatyana_bondkowskaya/"> </a><a class="contacts-cont__fb" href="https://www.facebook.com/profile.php?id=100005715610618"> </a><a class="contacts-cont__yt" href=""> </a></div><span class="contacts-cont__txt">mamason@ya.ru</span>
+      </div>
+    </header>
+    <div class="menu-cont main-cont_pad-aside">
+      <div class="menu-cont__contacts">
+        <div class="menu-cont__phone">+7 (917) 545-85-44</div>
+        <div class="menu-cont__social-cont"><a class="menu-cont__vk" href="https://vk.com/id39592509"> </a><a class="menu-cont__inst" href="https://vk.com/id39592509"> </a><a class="menu-cont__fb" href="https://vk.com/id39592509"> </a><a class="menu-cont__yt" href="https://vk.com/id39592509"></a></div>
+      </div>
+      <button class="menu-cont__dropbtn" onclick="showDropMenu()">Меню                     </button>
+      <div class="menu-cont__points"><a class="menu-cont__point" href="#about" onclick="hideDropMenu()">Обо мне</a><span class="menu-cont__between">|</span><a class="menu-cont__point" href="#courses" onclick="hideDropMenu()">Курсы</a><span class="menu-cont__between">|</span><a class="menu-cont__point" href="#advant" onclick="hideDropMenu()">Преимущества</a><span class="menu-cont__between">|</span><a class="menu-cont__point" href="#how" onclick="hideDropMenu()">Подробности</a><span class="menu-cont__between">|</span><a class="menu-cont__point" href="#forms" onclick="hideDropMenu()">Заказать</a></div>
+    </div>
+    <div class="banner-cont main-cont_pad">
+      <div class="banner-cont__title-cont">
+        <div class="banner-cont__txt">
+          <h1 class="banner-cont__title">Проблемы с русским в школе?</h1><span class="banner-cont__subtitle">На моих занятиях скучный урок станет любимым.</span>
+        </div>
+      </div>
+      <div class="promo-cont">
+        <h3 class="promo-cont__txt">Первый месяц обучения <b class = 'promo-cont_bold'>со скидкой 25%</b>.</h3>
+        <form class="promo-cont__forms" action="success.php" method="post">
+          <input class="promo-cont__form" type="text" name="userName" id="name" placeholder="Введите имя" required="required"/>
+          <input class="promo-cont__form" type="text" name="userPhone" id="phone" placeholder="Введите телефон" required="required"/>
+          <button class="promo-cont__order" type="submit">Закажите звонок </button>
+        </form>
+      </div>
+    </div>
+    <div class="about-cont main-cont_pad" id="about">
+      <h2 class="about-cont__title">Обо мне</h2>
+      <div class="about-cont__content">
+        <div class="about-cont__pic-cont">
+          <img class="about-cont__pic" src="{{ url_for('static', filename='images/avatar.jpg') }}" alt="">
+        </div>
+        <p class="about-cont__txt">Здравствуйте. Меня зовут Татьяна Бондковская. Я репетитор по русскому языку, занимаюсь с детьми 6-11 класса, готовлю к ОГЭ, к ЕГЭ, к ВПР. Мой <b class='about-cont_bold'>опыт преподавания – 13 лет</b>, при этом я не работала в школе, а преподавала в небольших группах от 2 до 16 человек. За все время преподавания я обучила  <b class='about-cont_bold'> более 850 учеников</b>, провела <b class='about-cont_bold'>около 9000 академических часов</b>. Мои ученики поступают в ведущие вузы страны (ВШЭ, МАИ, университет им. Г.В. Плеханова, МПГУ, МГТУ им. Н.Э. Баумана и т.д.). При активной работе ребят (при выполнении домашнего задания, отсутствии пропусков) их <b class='about-cont_bold'>результаты сдачи ЕГЭ от 75 до 96 баллов</b>. Я являюсь автором дистанционного курса для факультета журналистики, соавтором сборника тестов ЕГЭ, разработчиком заданий для тестирования новых преподавателей и проч., была ведущей вебинаров курса подготовки к ЕГЭ. Мой подход к преподаванию – сделать скучные упражнения интересными, поэтому я использую игровые методики, эвристический метод, при котором я помогаю детям самостоятельно сформулировать правила, и приемы развития критического мышления. Сейчас я набираю учеников на будущий учебный год для обучения онлайн в освобождающиеся с сентября места.<a class="about-cont__moretxt" onclick="showMoreTxt()">Подробнее             </a></p>
+      </div>
+    </div>
+    <h2 class="main-cont__title main-cont_courses main-cont_pad-aside" id="courses">Курсы</h2>
+    <div class="courses-cont main-cont_pad">
+      <div class="course-card">
+        <div class="course-card__bg"></div>
+        <h3 class="course-card__title">6 класс</h3>
+        <div class="course-card__txt"><span class="course-card__desc">В течение курса мы с ребятами разберем, что такое </span>
+          <ul class="course-card__pieces">
+            <li class="course-card__point">фонетика,</li>
+            <li class="course-card__point">лексикология,</li>
+            <li class="course-card__point">морфемика,</li>
+            <li class="course-card__point">морфология;</li>
+            <li class="course-card__point">освоим более 45 правил орфографии.</li>
+          </ul>
+        </div><a class="course-card__price" href="#forms">от 990 руб/час</a>
+      </div>
+      <div class="course-card">
+        <div class="course-card__bg"></div>
+        <h3 class="course-card__title">7 класс</h3>
+        <div class="course-card__txt"><span class="course-card__desc">Подробно разберемся с такими сложными частями речи, как</span>
+          <ul class="course-card__pieces">
+            <li class="course-card__point">причастия и отглагольные прилагательные,</li>
+            <li class="course-card__point">деепричастия, </li>
+            <li class="course-card__point">наречия,</li>
+            <li class="course-card__point">служебные части речи</li>
+            <li class="course-card__point">и научимся писать разные виды сочинений.</li>
+          </ul>
+        </div><a class="course-card__price" href="#forms">от 990 руб/час</a>
+      </div>
+      <div class="course-card">
+        <div class="course-card__bg"></div>
+        <h3 class="course-card__title">8 класс</h3>
+        <div class="course-card__txt"><span class="course-card__desc">С этого года активно начнем изучать материалы, необходимые на ОГЭ:</span>
+          <ul class="course-card__pieces">
+            <li class="course-card__point">синтаксис, </li>
+            <li class="course-card__point">пунктуацию, </li>
+            <li class="course-card__point">самые непонятные сложные орфографические правила.</li>
+            <li class="course-card__point">Помимо этого, начнем подготовку к устной части экзамена.</li>
+          </ul>
+        </div><a class="course-card__price" href="#forms">от 990 руб/час</a>
+      </div>
+      <div class="course-card">
+        <div class="course-card__bg"></div>
+        <h3 class="course-card__title">9 класс</h3>
+        <div class="course-card__txt"><span class="course-card__desc">Мы тщательно изучим в течение учебного года</span>
+          <ul class="course-card__pieces">
+            <li class="course-card__point">синтаксис, </li>
+            <li class="course-card__point">пунктуацию, </li>
+            <li class="course-card__point">офографию,</li>
+            <li class="course-card__point">лексику, </li>
+            <li class="course-card__point">морфемику.</li>
+            <li class="course-card__point">Научимся писать сжатое изложение и все виды выпускного сочинения.</li>
+          </ul>
+        </div><a class="course-card__price" href="#forms">от 990 руб/час</a>
+      </div>
+      <div class="course-card">
+        <div class="course-card__bg"></div>
+        <h3 class="course-card__title">10 класс</h3>
+        <div class="course-card__txt"><span class="course-card__desc">За год до ЕГЭ мы создадим фундамент по самым важным темам:</span>
+          <ul class="course-card__pieces">
+            <li class="course-card__point">освоимся в пунктуации, орфографии и орфоэпии</li>
+            <li class="course-card__point">научимся решать 21 задание,</li>
+            <li class="course-card__point">разберем различные нормы.</li>
+            <li class="course-card__point">Поймем, как пишутся итоговое и экзаменационное сочинения.</li>
+          </ul>
+        </div><a class="course-card__price" href="#forms">от 990 руб/час</a>
+      </div>
+      <div class="course-card">
+        <div class="course-card__bg"></div>
+        <h3 class="course-card__title">11 класс</h3>
+        <div class="course-card__txt"><span class="course-card__desc">Самый насыщенный итоговый год обучения, в течение которого мы </span>
+          <ul class="course-card__pieces">
+            <li class="course-card__point">полноценно подготовимся к декабрьскому сочинению, </li>
+            <li class="course-card__point">научимся редактировать свои работы, и находить ошибки</li>
+            <li class="course-card__point">освоим работу с текстом,</li>
+            <li class="course-card__point">напишем более 35 полноценных экзаменационных вариантов. </li>
+          </ul>
+        </div><a class="course-card__price" href="#forms">от 990 руб/час</a>
+      </div>
+    </div>
+    <h2 class="main-cont__title main-cont_advant main-cont_pad-aside">Почему вам стоит записаться ко мне</h2>
+    <div class="advantages-cont main-cont_pad" id="advant">
+      <div class="advantages-cont__advantage advantages-cont_1">
+        <div class="advantages-cont__pic advantages-cont_interest advantages-cont_rightPic"></div>
+        <div class="advantages-cont__txt">
+          <h3 class="advantages-cont__title">Интересные занятия </h3>
+          <p class="advantages-cont__descript">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem beatae expedita culpa accusamus quas omnis, illum, provident officiis voluptates magni impedit qui inventore dolorem delectus deleniti sapiente sit maiores at fugiat consequatur enim facere ut. Reiciendis inventore in libero distinctio voluptas, blanditiis, veritatis incidunt iure enim magni id maiores cupiditate?</p>
+        </div>
+      </div>
+      <div class="advantages-cont__advantage advantages-cont_2">
+        <div class="advantages-cont__pic advantages-cont_individ"></div>
+        <div class="advantages-cont__txt">
+          <h3 class="advantages-cont__title">Индивидуальный подход</h3>
+          <p class="advantages-cont__descript">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, iure nihil. Doloribus assumenda unde dolorum suscipit dolorem, nesciunt reiciendis sit voluptatibus veritatis nisi aut aspernatur commodi corrupti expedita illo vero, similique, magnam recusandae nulla! Magni veritatis, recusandae soluta exercitationem ratione, asperiores fugiat saepe libero nam ducimus error eius enim cumque quam odio autem voluptas laboriosam esse officia maxime! Amet, vero!</p>
+        </div>
+      </div>
+      <div class="advantages-cont__advantage advantages-cont_3">
+        <div class="advantages-cont__pic advantages-cont_price advantages-cont_rightPic"></div>
+        <div class="advantages-cont__txt"> 
+          <h3 class="advantages-cont__title">Гибкая ценовая политика </h3>
+          <p class="advantages-cont__descript">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit expedita repellendus officia libero, illum tempora, sint quaerat ipsum corporis recusandae laudantium dolore. Sapiente impedit sequi eius, aliquam deleniti voluptatem labore est consectetur aperiam dolor beatae dolorum nulla sit, corrupti fugiat! Nam voluptatem aut optio tempore obcaecati minus aspernatur distinctio deserunt.</p>
+        </div>
+      </div>
+    </div>
+    <h2 class="main-cont__title main-cont_how main-cont_pad-aside">Как проходят занятия</h2>
+    <div class="how-cont main-cont_pad" id="how"> 
+      <div class="how-cont__content">
+        <div class="how-cont__state how-cont_purpose-state">
+          <div class="how-cont__icon how-cont_purpose"></div>
+          <h3 class="how-cont__state-title">Ставим цели</h3>
+          <p class="how-cont__txt">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis commodi explicabo enim dolor, repellat quidem voluptate, excepturi laudantium, ipsum illum debitis. Tempore accusantium nemo laboriosam adipisci vitae deleniti dolore cumque ut! Fugiat ea commodi, dolorem eveniet eaque quis doloremque dolore.</p>
+        </div>
+        <div class="how-cont__state how-cont_repeat-state">
+          <div class="how-cont__icon how-cont_repeat"></div>
+          <h3 class="how-cont__state-title">Повторяем материал</h3>
+          <p class="how-cont__txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, minima, placeat consequuntur veritatis qui quis molestiae iste ipsam tempora sed impedit quia velit est voluptatum labore libero sequi laborum optio?</p>
+        </div>
+        <div class="how-cont__state how-cont_work-state">
+          <div class="how-cont__icon how-cont_work"></div>
+          <h3 class="how-cont__state-title">Решаем, пишем, играем</h3>
+          <p class="how-cont__txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis deleniti, modi perspiciatis laborum veritatis ipsum cumque iste magnam nisi cum. Magnam illum asperiores, alias, odio a iusto ad perferendis, totam molestias eligendi temporibus! Voluptatum, recusandae!</p>
+        </div>
+        <div class="how-cont__state how-cont_talk-state">
+          <div class="how-cont__icon how-cont_talk"></div>
+          <h3 class="how-cont__state-title">Обсуждаем результаты</h3>
+          <p class="how-cont__txt">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, error culpa sapiente debitis dolores delectus ratione adipisci odio saepe labore, corrupti eaque. Illum repellendus, officia dicta animi ducimus voluptatibus similique in obcaecati quam nesciunt aliquam alias quasi ipsa tenetur?</p>
+        </div>
+      </div>
+    </div>
+    <h2 class="main-cont__title main-cont_forms main-cont_pad-aside">Записаться на мои занятия </h2>
+    <div class="forms-cont main-cont_pad" id="forms">
+      <div class="forms-cont__txt-cont">
+        <h3 class="forms-cont__title">Вам осталось только заполнить формы</h3><span class="forms-cont__txt">Если Вы давно искали опытного преподавателя для внешкольных занятий русского онлайн, оставьте свою контактную информацию, и я обязательно свяжусь с Вами удобным способом </span>
+      </div>
+      <form class="forms-cont__forms" action="success.php" method="post">
+        <div class="forms-cont__column">
+          <div class="forms-cont__form-group">
+            <label class="forms-cont__form-label" for="name">Ваше имя</label>
+            <input class="forms-cont__form" type="text" name="userName" id="name" placeholder="Иванов Иван Иванович" required="required"/>
+          </div>
+          <div class="forms-cont__form-group">
+            <label class="forms-cont__form-label" for="phone">Ваш телефон</label>
+            <input class="forms-cont__form" type="text" name="userPhone" id="phone" placeholder="+7 (912) 345-67-89" required="required"/>
+          </div>
+          <div class="forms-cont__form-group">
+            <label class="forms-cont__form-label" for="e-mail">Ваш e-mail</label>
+            <input class="forms-cont__form" type="text" name="userEmail" id="email" placeholder="example@email.ru"/>
+          </div>
+          <button class="forms-cont__order" type="submit">Заказать звонок</button>
+        </div>
+        <div class="forms-cont__form-group forms-cont_comment">
+          <label class="forms-cont__form-label" for="text">Комментарий</label>
+          <textarea class="forms-cont__form forms-cont_txt" name="comment" id="text" placeholder="Здравствуйте! Вы можете позвонить мне в пятницу после 19:00." rows="10"></textarea>
+        </div>
+      </form>
+    </div>
+    <footer class="footer-cont main-cont_pad-aside">
+      <div class="slogan-logo"><span class="slogan-logo__name">Татьяна Бондковская </span>
+        <div class="slogan-logo__activ-cont"><span class="slogan-logo__activity">Преподаватель по русскому онлайн </span></div>
+      </div>
+      <div class="contacts-cont"><span class="contacts-cont__txt">+7 (917) 545-85-44</span>
+        <div class="contacts-cont__social"> <a class="contacts-cont__vk" href="https://vk.com/id39592509"> </a><a class="contacts-cont__inst" href="https://vk.com/id39592509"> </a><a class="contacts-cont__fb" href="https://vk.com/id39592509"> </a><a class="contacts-cont__yt" href="https://vk.com/id39592509">    </a></div><span class="contacts-cont__txt">mamason@ya.ru</span>
+      </div>
+    </footer>
+  </body>
+</html>
