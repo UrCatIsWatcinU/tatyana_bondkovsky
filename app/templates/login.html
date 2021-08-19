@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="content">
+        <h1>Вход</h1>
+        <form action="" method="POST" novalidate>
+            {{ form.hidden_tag() }}
+            <p class="{% if 'username' in errors %} error-input {% endif %}">
+                {{ form.login.label }}
+                {{ form.login(size=32) }}
+            </p>
+            <p class="{% if 'pwd' in errors %} error-input {% endif %}">
+                {{ form.password.label }}
+                {{ form.password(size=32) }}
+            </p>
+            <p class="remember">{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+            <p>{{ form.send() }}</p>
+        </form>
+    </div>
+    <style>
+        .app{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        form{
+            margin-bottom: 15px;
+        }
+        label{
+            display: block;
+            margin-bottom: 7px;
+        }
+        p{
+            margin: 7px 0;
+        }
+        #send{
+            width: 100%;
+        }
+        .remember > label{
+            display: inline;
+        }
+        .error-input input{
+            border: 1px var(--red-c) solid;
+        }
+        .pwd-reset{
+            color: var(--main-c);
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .btns-cont{
+            margin-top: 10px;
+        }
+    </style>
+{% endblock %}

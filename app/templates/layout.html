@@ -1,0 +1,108 @@
+{% set user = user if user.is_authenticated else None %}
+
+<!DOCTYPE html>
+<html lang="ru" myId="{{ user.id if user else ''}}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* стиль для загрузки, необходим, чтобы до загрузки остальных файлов стилей загрузка уже выглядела нормально */
+    body{
+      /* все необходимые потом статичные переменные стоит объявить здесь */
+      --main-c: #a587e3;
+      --white-c: #f8fefe;
+      --red-c: red;
+    }
+
+    .while-loading *{
+      visibility: hidden;
+    }
+    .loading{
+      opacity: 1;
+      transition: opacity .4s linear;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--white-c);  
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      z-index: 100;
+      visibility: visible;
+    }
+    .loading *{
+      visibility: inherit;
+    }
+    .loading-svg{
+      visibility: visible;
+      height: 100px;
+      fill: var(--main-c);
+    }
+  </style>
+
+  <script src="{{url_for('static', filename='public.js')}}"></script>
+
+  <link rel="shortcut icon" href="{{ url_for('static', filename='icons/favicon.ico') }}" type="image/x-icon">
+  <link rel="stylesheet" href="{{url_for('static', filename='public.css')}}">
+
+  {% block head %}
+  {% endblock %}
+
+  <title>{{ service_name }} | {{title}}</title>
+</head>
+<body class="main while-loading"> 
+  <div class="loading">
+    <svg class='loading-svg' version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+      viewBox="0 0 52 100" enable-background="new 0 0 0 0" xml:space="preserve">
+      <circle stroke="none" cx="6" cy="50" r="6">
+        <animate
+          attributeName="opacity"
+          dur="1s"
+          values="0;1;0"
+          repeatCount="indefinite"
+          begin="0.1"/>    
+      </circle>
+      <circle stroke="none" cx="26" cy="50" r="6">
+        <animate
+          attributeName="opacity"
+          dur="1s"
+          values="0;1;0"
+          repeatCount="indefinite" 
+          begin="0.2"/>       
+      </circle>
+      <circle stroke="none" cx="46" cy="50" r="6">
+        <animate
+          attributeName="opacity"
+          dur="1s"
+          values="0;1;0"
+          repeatCount="indefinite" 
+          begin="0.3"/>     
+      </circle>
+    </svg>
+  </div>
+  
+  {% if user %}
+    <header class="header">
+      <div class="user-cont">
+          <span class="username">{{ user.name }}</span>
+          <a href="/logout"><button>Выйти из системы</button></a>
+        </div>
+        <div class="header-btns">
+          <a href="{{ url_for('index') }}"><button>Главная</button></a>
+        </div>
+    </header>
+  {% endif %}      
+  <div class="app" id="app">
+    {% block content %}
+    {% endblock %}
+  </div>
+  <footer class='footer'></footer>
+  {% block foot %}
+  {% endblock %}
+</body>
+</html>
+
+

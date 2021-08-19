@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h1>Заявки на звонок</h1>
+    <div>
+        {% for req in requests %}
+            {{ req | safe }}
+        {% endfor %}
+        
+    </div>
+
+    <style>
+        .call-request{
+            margin: 15px 0;
+            border-bottom: 1px solid var(--main-c);
+        }
+        .call-request-label{
+            margin: 0;
+            margin-bottom: 7px;
+        }
+    </style>
+{% endblock %}
+

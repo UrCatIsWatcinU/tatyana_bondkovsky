@@ -8,6 +8,7 @@
     <meta name="robots" content="noindex,nofollow"/>
     <meta name="description" content="Хотите подтянуть русский язык и сдать экзамен на пять? Я помогу вам."/>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/media.css') }}"/>
     <link rel="shortcut icon" href="{{ url_for('static', filename='icons/favicon.ico') }}" type="image/x-icon"/>
     <title>Преподаватель русского языка Татьяна Бондковская </title>
   </head>
@@ -36,9 +37,9 @@
       </div>
       <div class="promo-cont">
         <h3 class="promo-cont__txt">Первый месяц обучения <b class = 'promo-cont_bold'>со скидкой 25%</b>.</h3>
-        <form class="promo-cont__forms" action="success.php" method="post">
-          <input class="promo-cont__form" type="text" name="userName" id="name" placeholder="Введите имя" required="required"/>
-          <input class="promo-cont__form" type="text" name="userPhone" id="phone" placeholder="Введите телефон" required="required"/>
+        <form class="promo-cont__forms" action="{{ url_for('call_requests') }}" method="post">
+          <input class="promo-cont__form" type="text" name="name" id="name" placeholder="Введите имя" required="required"/>
+          <input class="promo-cont__form" type="text" name="phone" id="phone" placeholder="Введите телефон" required="required"/>
           <button class="promo-cont__order" type="submit">Закажите звонок </button>
         </form>
       </div>
@@ -106,19 +107,19 @@
       <div class="forms-cont__txt-cont">
         <h3 class="forms-cont__title">Вам осталось только заполнить формы</h3><span class="forms-cont__txt">Если Вы давно искали опытного преподавателя для внешкольных занятий русского онлайн, оставьте свою контактную информацию, и я обязательно свяжусь с Вами удобным способом </span>
       </div>
-      <form class="forms-cont__forms" action="success.php" method="post">
+      <form class="forms-cont__forms" action="{{ url_for('call_requests') }}" method="post">
         <div class="forms-cont__column">
           <div class="forms-cont__form-group">
             <label class="forms-cont__form-label" for="name">Ваше имя</label>
-            <input class="forms-cont__form" type="text" name="userName" id="name" placeholder="Иванов Иван Иванович" required="required"/>
+            <input class="forms-cont__form" type="text" name="name" id="name" placeholder="Иванов Иван Иванович" required="required"/>
           </div>
           <div class="forms-cont__form-group">
             <label class="forms-cont__form-label" for="phone">Ваш телефон</label>
-            <input class="forms-cont__form" type="text" name="userPhone" id="phone" placeholder="+7 (912) 345-67-89" required="required"/>
+            <input class="forms-cont__form" type="text" name="phone" id="phone" placeholder="+7 (912) 345-67-89" required="required"/>
           </div>
           <div class="forms-cont__form-group">
             <label class="forms-cont__form-label" for="e-mail">Ваш e-mail</label>
-            <input class="forms-cont__form" type="text" name="userEmail" id="email" placeholder="example@email.ru"/>
+            <input class="forms-cont__form" type="text" name="email" id="email" placeholder="example@email.ru"/>
           </div>
           <button class="forms-cont__order" type="submit">Заказать звонок</button>
         </div>

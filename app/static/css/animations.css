@@ -1,0 +1,64 @@
+@-moz-keyframes fixed {
+    0% {
+        top: -200px;
+    }
+    100% {
+        top: 0;
+    }
+}
+    @-webkit-keyframes fixed {
+    0% {
+        top: -200px;
+    }
+    100% {
+        top: 0;
+    }
+}
+    @-o-keyframes fixed {
+    0% {
+        top: -200px;
+    }
+    100% {
+        top: 0;
+    }
+}
+    @keyframes fixed {
+    0% {
+        top: -200px;
+    }
+    100% {
+        top: 0;
+    }
+}
+    @-moz-keyframes line {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 75%;
+    }
+}
+    @-webkit-keyframes line {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 75%;
+    }
+}
+    @-o-keyframes line {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 75%;
+    }
+}
+    @keyframes line {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 75%;
+    }
+}

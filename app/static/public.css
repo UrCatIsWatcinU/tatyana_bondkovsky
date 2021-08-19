@@ -1,0 +1,108 @@
+* {
+    outline: none;
+}
+*:focus{
+    outline: none;
+}
+body{
+    margin: 0;
+    padding: 0 5vw;
+    font-family: Open-Sans,  sans-serif; /* TODO: поставить нормальный шрифт */
+}
+
+
+
+select{
+    white-space: pre-wrap;
+    width: 100%;
+}
+button,
+input{
+    font-size: .95em;
+    padding: 5px 10px;
+    margin-right: 2px;
+}
+button{
+    cursor: pointer;
+}
+
+
+
+.modal{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .3);
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--black_c);
+  z-index: 11;
+}
+.modal-content{
+    background-color: var(--white-c);
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 60vw;
+    min-height: 40%;
+}
+.modal-title{
+    margin-top: 0;
+    width: 100%;
+    height: max-content;
+    white-space: pre-wrap;
+}
+.modal-body{
+    white-space: pre-wrap;
+}
+
+
+
+
+.score-1{
+    background-color: #c5e0b3;
+}
+.score-2{
+    background-color: #e2efd9;
+}
+.score-3{
+    background-color: #fef2cb;
+}
+.score-4{
+    background-color: #fbe4d5;
+}
+.score-5{
+    background-color: #f7caac;
+}
+
+
+
+
+.warn{
+    background: rgba(255, 0, 0, .05);
+    padding: 20px;
+    margin: 5px 0;
+    width: max-content;
+    max-width: 100%;
+    white-space: pre-wrap;
+    box-sizing: border-box;
+}
+
+
+
+
+.header{
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+@media (max-width: 450px){
+    body{
+        padding: 0 2vw;
+    }
+}
