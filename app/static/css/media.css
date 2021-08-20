@@ -529,28 +529,28 @@
       height: 17px;
     }
     .menu-cont__vk {
-      background-image: url("icons/social/vk.svg");
+      background-image: url("/static/icons/social/vk.svg");
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
       background-attachment: scroll;
     }
     .menu-cont__inst {
-      background-image: url("icons/social/inst.svg");
+      background-image: url("/static/icons/social/inst.svg");
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
       background-attachment: scroll;
     }
     .menu-cont__fb {
-      background-image: url("icons/social/fb.svg");
+      background-image: url("/static/icons/social/fb.svg");
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
       background-attachment: scroll;
     }
     .menu-cont__yt {
-      background-image: url("icons/social/yt.svg");
+      background-image: url("/static/icons/social/yt.svg");
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
