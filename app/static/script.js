@@ -11,34 +11,32 @@ function isIOS() {
     || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
 }
 
-const TRANSITION_DURATION = 1200;
+const TRANSITION_DURATION = 700;
 
 //drop menu in menu block
 let dropMenuState = 0;
 
 function showDropMenu() {
+    dropMenuState = 1
     let menuPoints = document.querySelector(".menu-cont__points"); 
-
-    if(!dropMenuState){
-        dropMenuState = 1
-        menuPoints.style.display = 'flex';
-        setTimeout(() => {menuPoints.style.opacity = '0.97';}, 1)
-        return;
-    } else{
-        dropMenuState = 0
-        menuPoints.style.opacity = '0';
-        setTimeout(() => {menuPoints.style.display = 'none'}, TRANSITION_DURATION);
-        return;
-    }
+    
+    if(!menuPoints) return;
+    menuPoints.style.display = 'flex';
+    setTimeout(() => {menuPoints.style.opacity = '0.97';}, 1)
+    return;
 };
 
 function hideDropMenu(){
-    if(window.matchMedia('(max-width: 450px)').matches){
-        let menuPoints = document.querySelector(".menu-cont__points");
-        menuPoints.style.opacity = '0';
-        setTimeout(function(){menuPoints.style.display = 'none'}, TRANSITION_DURATION);
-    };    
+    if(!dropMenuState) return
+    dropMenuState = 0
+
+    let menuPoints = document.querySelector(".menu-cont__points");
+    if(!menuPoints) return;
+
+    menuPoints.style.opacity = '0';
+    setTimeout(function(){menuPoints.style.display = 'none'}, TRANSITION_DURATION);
 };
+
 
 
 //more text in about block
@@ -47,7 +45,7 @@ let state_moreTxt = 0;
 function showMoreTxt(){
     let moreTxt = document.querySelector('.about-cont__moretxt');
     let txt = document.querySelector('.about-cont__txt');
-
+    
     if (!state_moreTxt) {
         state_moreTxt = 1;
         txt.style.maxHeight = '850px';
@@ -94,13 +92,13 @@ function showShad(elem, right = 0){
 window.addEventListener('scroll', function() {
     let menu = document.querySelector('.menu-cont');
     let header = document.querySelector('.header-cont');
-
+    
     if(pageYOffset > 130){
         menu.style.cssText =('animation: fixed 1s cubic-bezier(1,.01,.16,.89); position: fixed; z-index: 3; opacity: 0.9; top: 0px;');
         header.style.cssText =('margin-bottom:50px');
     }
     else{
-        menu.style.cssText =('position:static;');
+        menu.style.cssText =('position: relative;');
         header.style.cssText =('margin-bottom:0px');
     };
     
@@ -117,10 +115,11 @@ window.addEventListener('scroll', function() {
             document.querySelector('.how-cont__content').classList.remove('how-cont_line')
         };   
     };  
+
 });
 
 
-window.onload = () => {
+window.onload = () => { 
     document.querySelectorAll('.menu-cont__point').forEach(link => {
         link.addEventListener('click', evt => {
             evt.preventDefault();
@@ -161,5 +160,15 @@ window.onload = () => {
             }
         }, { passive: false })
     
-    })
+    });
+
+    const menuBtn = document.querySelector('.menu-cont__dropbtn');
+    if(menuBtn){
+        menuBtn.onclick = evt => {
+            evt.stopPropagation();
+
+            showDropMenu();
+        }
+        document.onclick = hideDropMenu
+    }   
 }

@@ -89,11 +89,6 @@
       content: '4.';
     }
   }
-  @media (min-width: 1110px) and (max-width: 1160px) {
-    .how-cont__state-title {
-      height: 40px;
-    }
-  }
   @media (min-width: 1001px) and (max-width: 1160px) {
     .banner-cont__title {
       font-size: 2.64em;
@@ -398,9 +393,6 @@
       grid-row-gap: 30px;
       position: static;
     }
-    .how-cont__state-title {
-      height: 32px;
-    }
     .forms-cont {
       flex-direction: column;
     }
@@ -586,9 +578,6 @@
     }
     .menu-cont__between {
       display: none;
-    }
-    .how-cont__state-title {
-      height: 80px;
     }
   }
   @media (hover: hover) and (pointer: fine) {

@@ -477,6 +477,24 @@ html{
   margin: 0;
   font-size: 1.02em;
 }
+
+.main-cont_prices {
+  background: #34c3a6;
+  color: #f8fefe;
+  margin: 0;
+  box-sizing: border-box;
+  height: 80px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 0 0 6px 6px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  background-image: linear-gradient(-90deg, #34c3a6 0%, #a587e3 100%);
+}
+
 .main-cont_advant {
   color: #f8fefe;
   background-image: linear-gradient(90deg, #a587e3 30%, rgba(105,168,195,0.2) 100%);
