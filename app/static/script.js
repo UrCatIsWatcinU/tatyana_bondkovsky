@@ -1,3 +1,16 @@
+function isIOS() {
+    return [
+      'iPad Simulator',
+      'iPhone Simulator',
+      'iPod Simulator',
+      'iPad',
+      'iPhone',
+      'iPod'
+    ].includes(navigator.platform)
+    // iPad on iOS 13 detection
+    || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+}
+
 const TRANSITION_DURATION = 1200;
 
 //drop menu in menu block
@@ -56,7 +69,6 @@ function showMoreTxt(){
     };
 };
 
-
 function showShad(elem, right = 0){
     if(typeof(elem) == 'string') elem = document.querySelector(elem);
     const scroll =  elem.getBoundingClientRect().top + pageYOffset - document.documentElement.clientHeight / 2;
@@ -78,6 +90,7 @@ function showShad(elem, right = 0){
         };
     };           
 };
+
 window.addEventListener('scroll', function() {
     let menu = document.querySelector('.menu-cont');
     let header = document.querySelector('.header-cont');
@@ -107,3 +120,46 @@ window.addEventListener('scroll', function() {
 });
 
 
+window.onload = () => {
+    document.querySelectorAll('.menu-cont__point').forEach(link => {
+        link.addEventListener('click', evt => {
+            evt.preventDefault();
+            
+            const block = document.querySelector(`#${link.getAttribute('href').split('#')[1]}`);
+            if(!block) return;
+            
+            const rect = block.getBoundingClientRect();
+            
+            const neededY = rect.top + document.documentElement.scrollTop - document.querySelector('.menu-cont').offsetHeight - 10;
+            
+            if(isIOS()){
+                document.documentElement.style.scrollBehavior = 'auto';
+
+                let startY = document.documentElement.scrollTop;
+                const SPEED = .04;
+                const oneStepY = (neededY - startY) * SPEED;
+                console.log(neededY); 
+                
+                let previousY = document.documentElement.scrollTop;
+                
+                const changeScrollY = () => {
+                    if(
+                        Math.round(document.documentElement.scrollTop) != Math.round(previousY) ||    
+                        (neededY > startY && neededY - document.documentElement.scrollTop <= 0) ||
+                        (neededY < startY && neededY - document.documentElement.scrollTop >= 0)
+                    ) return;
+                    
+                    document.documentElement.scrollTop += oneStepY;
+                    previousY = document.documentElement.scrollTop;
+                    
+                    requestAnimationFrame(changeScrollY);
+                }
+                requestAnimationFrame(changeScrollY);
+            }else{
+                window.location.hash = block.id;
+                document.documentElement.scrollTop = neededY;
+            }
+        }, { passive: false })
+    
+    })
+}

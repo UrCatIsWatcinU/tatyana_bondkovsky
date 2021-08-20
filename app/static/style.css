@@ -1,5 +1,10 @@
 @import url('css/fonts.css');
 @import url('css/animations.css');
+
+html{
+  scroll-behavior: smooth;
+}
+
 .main-cont__title,
 .about-cont__title,
 .success-cont__title {
