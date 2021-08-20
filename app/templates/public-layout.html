@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <meta name="description" content="Хотите подтянуть русский язык и сдать экзамен на пять? Я помогу вам."/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/media.css') }}"/>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='icons/favicon.ico') }}" type="image/x-icon"/>
+    <title>Преподаватель русского языка Татьяна Бондковская</title>
+</head>
+<body class="main-cont">
+    <header class="header-cont main-cont_pad-aside">
+        <div class="slogan-logo"><span class="slogan-logo__name">Татьяна Бондковская </span>
+          <div class="slogan-logo__activ-cont"><span class="slogan-logo__activity">Преподаватель по русскому онлайн </span></div>
+        </div>
+        <div class="contacts-cont"><span class="contacts-cont__txt">+7 (917) 545-85-44</span>
+          <div class="contacts-cont__social"> <a class="contacts-cont__vk" href="https://vk.com/id39592509"> </a><a class="contacts-cont__inst" href="https://www.instagram.com/tatyana_bondkowskaya/"> </a><a class="contacts-cont__fb" href="https://www.facebook.com/profile.php?id=100005715610618"> </a><a class="contacts-cont__yt" href=""> </a></div><span class="contacts-cont__txt">mamason@ya.ru</span>
+        </div>
+    </header>
+    <div class="menu-cont main-cont_pad-aside">
+        <div class="menu-cont__contacts">
+          <div class="menu-cont__phone">+7 (917) 545-85-44</div>
+          <div class="menu-cont__social-cont"><a class="menu-cont__vk" href="https://vk.com/id39592509"> </a><a class="menu-cont__inst" href="https://vk.com/id39592509"> </a><a class="menu-cont__fb" href="https://vk.com/id39592509"> </a><a class="menu-cont__yt" href="https://vk.com/id39592509"></a></div>
+        </div>
+        <button class="menu-cont__dropbtn" onclick="showDropMenu()">Меню                     </button>
+        <div class="menu-cont__points">
+          <a class="menu-cont__point" href="/index#about" onclick="hideDropMenu()">Обо мне</a><span class="menu-cont__between">|</span>
+          <a class="menu-cont__point" href="/index#courses" onclick="hideDropMenu()">Курсы</a><span class="menu-cont__between">|</span>
+          <a class="menu-cont__point" href="/index#advant" onclick="hideDropMenu()">Преимущества</a><span class="menu-cont__between">|</span>
+          <a class="menu-cont__point" href="/index#how" onclick="hideDropMenu()">Про занятия</a><span class="menu-cont__between">|</span>
+          <a class="menu-cont__point" href="/index#forms" onclick="hideDropMenu()">Заказать</a></div>
+      </div>
+    {% block body %}
+    {% endblock %}
+</body>
+</html>

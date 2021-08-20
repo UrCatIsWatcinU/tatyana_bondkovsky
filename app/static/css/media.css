@@ -618,26 +618,9 @@
       background-position: 0 0;
     }
     .menu-cont {
-      -moz-width: calc(100vw - 17px);
-      width: calc(100vw - 17px);
+      width: 100%;
     }
     .menu-cont__point:hover {
       color: #d8e4e4;
     }
-  }
-  @media (hover: hover) and (pointer: fine) and (min-width: 851px) and (max-width: 1160px) {
-    .advantages-cont__advantage {
-      transition: box-shadow 0.5s, transform 0.5s cubic-bezier(1, 0.01, 0.16, 0.89);
-    }
-    .advantages-cont__advantage:hover {
-      transform: translate(-3px, -3px);
-      box-shadow: 4px 4px 10px rgba(42,42,42,0.5);
-    }
-    .advantages-cont_2 {
-      transition: box-shadow 0.5s, transform 0.5s cubic-bezier(1, 0.01, 0.16, 0.89);
-    }
-    .advantages-cont_2:hover {
-      transform: translate(3px, -3px);
-      box-shadow: -4px 4px 10px rgba(42,42,42,0.5);
-    }
-  }
+}

@@ -8,10 +8,6 @@ from flask_login import current_user, logout_user, login_user
 from app.models import CallRequest, User
 from app.forms import LoginForm
 
-@app.route('/')
-@app.route('/index')
-def index():
-    return render_template('index.html') 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -39,6 +35,17 @@ def logout():
     logout_user()
     return redirect(url_for('index'))
 
+
+@app.route('/')
+@app.route('/index')
+def index():
+    return render_template('index.html') 
+
+@app.route('/success')
+def success():
+    return render_template('success.html')
+
+
 @app.route('/call-requests', methods=['GET', 'POST'])
 @login_required
 def call_requests():
@@ -48,7 +55,8 @@ def call_requests():
             db.session.commit()
         except:
             db.session.rollback()
-            
-        return redirect(url_for('index'))
+            return redirect(url_for('index', messages=[{ 'type': 'error', 'message': 'Не удалось записать заявку. Проверьте данные и попробуйте ещё раз' }]))
+
+        return redirect(url_for('success'))
 
     return render_template('call-requests.html', requests=CallRequest.query.all(), title='Заявки', user=current_user)

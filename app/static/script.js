@@ -57,28 +57,33 @@ function showMoreTxt(){
 };
 
 
-function scroll(cls) {
-    jQuery(document).ready(function () {
-        jQuery(cls).click(function () {
-            elementClick = jQuery(this).attr("href");
-            destination = jQuery(elementClick).offset().top - 150;
-            jQuery("html:not(:animated),body:not(:animated)").animate({ scrollTop: destination }, 900);
-            return false;
-        });
-    });
+function showShad(elem, right = 0){
+    if(typeof(elem) == 'string') elem = document.querySelector(elem);
+    const scroll =  elem.getBoundingClientRect().top + pageYOffset - document.documentElement.clientHeight / 2;
+    if(right === 0){
+        if (pageYOffset > scroll && pageYOffset < scroll + elem.offsetHeight){
+            elem.style.transform = 'translate(-3px, -3px)';
+            elem.style.boxShadow = '4px 4px 10px rgba(42, 42, 42, 0.2)';         
+        }else{
+            elem.style.transform = 'none';
+            elem.style.boxShadow = 'none';         
+        };
+    }else{
+        if (pageYOffset > scroll && pageYOffset < scroll + elem.offsetHeight){
+            elem.style.transform = 'translate(3px, -3px)';
+            elem.style.boxShadow = '-4px 4px 10px rgba(42, 42, 42, 0.2)';         
+        }else{
+            elem.style.transform = 'none';
+            elem.style.boxShadow = 'none';         
+        };
+    };           
 };
-
-scroll('a.menu-cont__point')
-scroll('a.contacts-cont__txt')
-scroll('.course-card__price')
-
-
 window.addEventListener('scroll', function() {
     let menu = document.querySelector('.menu-cont');
     let header = document.querySelector('.header-cont');
 
     if(pageYOffset > 130){
-        menu.style.cssText =('animation: fixed 1s cubic-bezier(1,.01,.16,.89);position: fixed;z-index: 3;opacity: 0.9;top: 0px;');
+        menu.style.cssText =('animation: fixed 1s cubic-bezier(1,.01,.16,.89); position: fixed; z-index: 3; opacity: 0.9; top: 0px;');
         header.style.cssText =('margin-bottom:50px');
     }
     else{
@@ -86,30 +91,11 @@ window.addEventListener('scroll', function() {
         header.style.cssText =('margin-bottom:0px');
     };
     
-    function showShad(elem, scroll, right = 0){
-        if(right === 0){
-            if (pageYOffset > scroll && pageYOffset < scroll + 500){
-                document.querySelector(elem).style.transform = 'translate(-3px, -3px)';
-                document.querySelector(elem).style.boxShadow = '4px 4px 10px rgba(42, 42, 42, 0.4)';         
-            }else{
-                document.querySelector(elem).style.transform = 'none';
-                document.querySelector(elem).style.boxShadow = 'none';         
-            };
-        }else{
-            if (pageYOffset > scroll && pageYOffset < scroll + 500){
-                document.querySelector(elem).style.transform = 'translate(3px, -3px)';
-                document.querySelector(elem).style.boxShadow = '-4px 4px 10px rgba(42, 42, 42, 0.4)';         
-            }else{
-                document.querySelector(elem).style.transform = 'none';
-                document.querySelector(elem).style.boxShadow = 'none';         
-            };
-        };           
-    };
     
+    showShad('.advantages-cont_1')
+    showShad('.advantages-cont_2', 1)
+    showShad('.advantages-cont_3')
     if(window.matchMedia('(min-width: 1160px)').matches){
-        showShad('.advantages-cont_1', 2200)
-        showShad('.advantages-cont_2', 2600, 1)
-        showShad('.advantages-cont_3', 3000)
         
         if (document.getElementById('how').getBoundingClientRect().top < 300){
             document.querySelector('.how-cont__content').classList.add('how-cont_line')       
@@ -119,10 +105,5 @@ window.addEventListener('scroll', function() {
         };   
     };  
 });
-
-
-// window.addEventListener('scroll', function() {
-//     document.getElementById('scroll').innerHTML = document.getElementById('scroll').getBoundingClientRect().top + 'px';    
-// });
 
 
