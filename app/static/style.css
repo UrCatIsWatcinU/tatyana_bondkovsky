@@ -494,6 +494,27 @@ html{
   flex-wrap: nowrap;
   background-image: linear-gradient(-90deg, #34c3a6 0%, #a587e3 100%);
 }
+.prices-cont__table{
+  border-collapse: collapse;
+}
+.prices-cont__heading{
+  text-align: left;
+}
+.prices-cont__heading,
+.prices-cont__cell{
+  width: 200px;
+  padding: 2px 5px;
+}
+.prices-cont__cell{
+  padding: 10px;
+}
+.prices-cont__heading:not(:first-child),
+.prices-cont__cell:not(:first-child){
+  border-left: 1px solid #a587e3;
+}
+.prices-cont__row:not(:last-child){
+  border-bottom: 1px solid #a587e3;
+}
 
 .main-cont_advant {
   color: #f8fefe;

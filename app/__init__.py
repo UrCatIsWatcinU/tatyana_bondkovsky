@@ -16,4 +16,4 @@ migrate = Migrate(app, db, render_as_batch=True)
 
 app.jinja_env.globals['service_name'] = 'Татьяна Бондковская'
 
-from app import routes, models
+from app import routes, models, admin

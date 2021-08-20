@@ -5,7 +5,7 @@ from flask import render_template, redirect, request, url_for
 from werkzeug.urls import url_parse
 from flask_login import current_user, logout_user, login_user
 
-from app.models import CallRequest, User
+from app.models import CallRequest, Price, PriceAge, PricePeriod, PriceType, User
 from app.forms import LoginForm
 
 
@@ -39,7 +39,13 @@ def logout():
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html') 
+    table = {
+        'ages': PriceAge.query.all(),
+        'price_types': PriceType.query.all(),
+        'periods': PricePeriod.query.all(),
+        'prices': Price.query,
+    }
+    return render_template('index.html', **table) 
 
 @app.route('/success')
 def success():

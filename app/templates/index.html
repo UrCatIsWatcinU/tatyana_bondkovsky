@@ -25,6 +25,48 @@
     <p class="about-cont__txt">Здравствуйте. Меня зовут Татьяна Бондковская. Я репетитор по русскому языку, занимаюсь с детьми 6-11 класса, готовлю к ОГЭ, к ЕГЭ, к ВПР. Мой <strong>опыт преподавания – 14 лет</strong>, при этом я не работала в школе, а преподавала в небольших группах от 2 до 16 человек. За все время преподавания я обучила  <strong> более 850 учеников</strong>, провела <strong>около 9000 академических часов</strong>. Мои ученики поступают в ведущие вузы страны (ВШЭ, МАИ, университет им. Г.В. Плеханова, МПГУ, МГТУ им. Н.Э. Баумана и т.д.). При активной работе ребят (при выполнении домашнего задания, отсутствии пропусков) их <strong>результаты сдачи ЕГЭ от 75 до 96 баллов</strong>. Я являюсь автором дистанционного курса для факультета журналистики, соавтором сборника тестов ЕГЭ, разработчиком заданий для тестирования новых преподавателей и проч., была ведущей вебинаров курса подготовки к ЕГЭ. Мой подход к преподаванию – сделать скучные упражнения интересными, поэтому я использую игровые методики, эвристический метод, при котором я помогаю детям самостоятельно сформулировать правила, и приемы развития критического мышления. Сейчас я набираю учеников на будущий учебный год для обучения онлайн в освобождающиеся с сентября места.<a class="about-cont__moretxt" onclick="showMoreTxt()">Подробнее</a></p>
   </div>
 </div>
+<h2 class="main-cont__title main-cont_prices main-cont_pad-aside" id="prices">Тарифы и цены</h2>
+<div class="main-cont_pad prices-cont">
+  {% for type in price_types %}
+    <h3>{{ type.name }}</h3>
+    <table class="prices-cont__table">
+      <thead>
+        <tr class="prices-cont__row">
+          <th class="prices-cont__heading"></th>
+          {% for age in ages %}
+          {% set age_prices = prices.filter_by(age_id=age.id, type_id=type.id).all() %}
+          
+          {% if age_prices[0] %}
+          <th class="prices-cont__heading">{{ age.name }}</th>
+          {% endif %}            
+          {% endfor %}
+        </tr>
+        <tr class="prices-cont__row"></tr>
+      </thead>
+      <tbody>
+        {% for period in periods %}
+          {% set period_prices = prices.filter_by(period_id=period.id, type_id=type.id).all() %}
+            {% if period_prices[0] %}
+              <tr class="prices-cont__row">
+                <th class="prices-cont__heading">{{ period.name }}</th>
+                {% for price in period_prices %}
+                    <td class="prices-cont__cell">{{ price.value }} руб/час</td>
+                {% endfor %}
+                
+              </tr>
+            {% endif %}
+        {% endfor %}
+        
+      </tbody>
+    </table>
+    {% for period in periods %}
+
+    {% endfor %}
+    
+
+  {% endfor %}
+  
+</div>
 <h2 class="main-cont__title main-cont_advant main-cont_pad-aside" id="advant">Почему вам стоит записаться ко мне</h2>
 <div class="advantages-cont main-cont_pad">
   <div class="advantages-cont__advantage advantages-cont_1">
