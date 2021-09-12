@@ -80,7 +80,7 @@
     <h3>{{ type.name }}</h3>
     <table class="prices-cont__table">
       <thead>
-        <tr class="prices-cont__row">
+        <!-- <tr class="prices-cont__row">
           <th class="prices-cont__heading"></th>
           {% for age in ages %}
           {% set age_prices = prices.filter_by(age_id=age.id, type_id=type.id).all() %}
@@ -89,7 +89,7 @@
           <th class="prices-cont__heading">{{ age.name }}</th>
           {% endif %}            
           {% endfor %}
-        </tr>
+        </tr> -->
         <tr class="prices-cont__row"></tr>
       </thead>
       <tbody>
